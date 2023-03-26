@@ -1,8 +1,7 @@
 const { Chapitre, Article, Alinea, Section } = require('../../db/sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.get('/codepenal/chapitre/:id', auth, (req, res) => {
+    app.get('/codepenal/chapitre/:id',  (req, res) => {
         const id = req.params.id
         Chapitre.findByPk(id)
             .then(chapitre => {

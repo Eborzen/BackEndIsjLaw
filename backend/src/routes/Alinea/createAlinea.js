@@ -1,9 +1,8 @@
 const {Alinea} = require('../../db/sequelize')
 const{ ForeignKeyConstraintError, ValidationError } = require('sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.post('/codepenal/alinea', auth, (req, res) => {
+    app.post('/codepenal/alinea', (req, res) => {
         Alinea.create(req.body)
             .then(alinea => {
                 const message = `l'alinea ${req.body.id_alinea} a bien été crée`

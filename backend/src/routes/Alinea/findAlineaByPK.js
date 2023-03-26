@@ -1,8 +1,7 @@
 const {Alinea} = require('../../db/sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.get('/codepenal/alinea/:id', auth, (req, res) => {
+    app.get('/codepenal/alinea/:id',  (req, res) => {
         Alinea.findByPk(req.params.id)
             .then(alinea => {
                 if( alinea === null){

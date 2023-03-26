@@ -2,7 +2,7 @@ const { Article, Alinea } = require('../../db/sequelize')
 const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.get('/codepenal/article/:id', auth , (req, res) => {
+    app.get('/codepenal/article/:id', (req, res) => {
         const id = req.params.id
         Article.findByPk(id)
             .then(article => {

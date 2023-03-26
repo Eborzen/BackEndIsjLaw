@@ -1,8 +1,7 @@
 const {Section} = require('../../db/sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.delete('/codepenal/section/:id', auth, (req, res) => {
+    app.delete('/codepenal/section/:id', (req, res) => {
         Section.findByPk(req.params.id).then(section => {
             if( section === null){
                 const message = "La ressource demandée n'existe pas . Réessayer avec un autre identifiant"

@@ -1,9 +1,8 @@
 const {Chapitre} = require('../../db/sequelize')
 const {ValidationError,UniqueConstraintError,ForeignKeyConstraintError} = require('sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.put('/codepenal/chapitre/:id', auth , (req, res) => {
+    app.put('/codepenal/chapitre/:id', (req, res) => {
         const id = req.params.id
         Chapitre.update(req.body, {
             where : {id_chapitre: id}

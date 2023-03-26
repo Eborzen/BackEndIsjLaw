@@ -1,9 +1,8 @@
 const {Section} = require('../../db/sequelize')
 const {ForeignKeyConstraintError, ValidationError, UniqueConstraintError} = require('sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.put('/codepenal/section/:id',  auth, (req, res) => {
+    app.put('/codepenal/section/:id',  (req, res) => {
         const id = req.params.id
         Section.update(req.body, {
             where : {id_section: id}

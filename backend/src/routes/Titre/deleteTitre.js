@@ -1,8 +1,7 @@
 const {Titre} = require('../../db/sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.delete('/codepenal/titre/:id', auth , (req, res) => {
+    app.delete('/codepenal/titre/:id',  (req, res) => {
         Titre.findByPk(req.params.id).then(titre => {
             const TitreDeleted = titre;
             Titre.destroy({

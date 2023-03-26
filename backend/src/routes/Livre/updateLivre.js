@@ -3,7 +3,7 @@ const {ValidationError, UniqueConstraintError, ForeignKeyConstraintError} = requ
 const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.put('/codepenal/livre/:id', auth, (req, res) => {
+    app.put('/codepenal/livre/:id', (req, res) => {
         const id = req.params.id
         Livre.update(req.body, {
             where : {id_livre: id}

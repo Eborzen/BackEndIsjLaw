@@ -1,9 +1,8 @@
 const {Chapitre} = require('../../db/sequelize')
 const {ValidationError,UniqueConstraintError,ForeignKeyConstraintError} = require('sequelize')
-const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-    app.post('/codepenal/chapitre', auth , (req, res) => {
+    app.post('/codepenal/chapitre',  (req, res) => {
         Chapitre.create(req.body)
             .then(chapitre => {
                 const message = `le chapitre ${req.body.libelle} a bien été crée`
